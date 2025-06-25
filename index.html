@@ -4,144 +4,129 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kanjuluri Bhargav | HR Portfolio</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
+    :root {
+      --dark-bg: #121212;
+      --light-bg: #f8f9fa;
+      --primary-accent: #00ffe5;
+      --secondary-accent: #ff4081;
+      --text-dark: #fff;
+      --text-light: #212529;
+    }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      transition: background 1s;
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      color: #ffffff;
-      overflow-x: hidden;
+      background: var(--dark-bg);
+      color: var(--text-dark);
+      transition: all 0.5s ease;
     }
 
-    .galaxy-bg {
-      background: radial-gradient(circle, #2b2e4a, #0f0c29);
+    .light-mode {
+      background: var(--light-bg);
+      color: var(--text-light);
     }
 
-    .profile-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 50px 0;
+    .light-mode section {
+      background-color: #ffffff;
+      border-top: 1px solid #dee2e6;
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: var(--primary-accent);
+      animation: pulse 3s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { text-shadow: 0 0 10px var(--primary-accent); }
+      50% { text-shadow: 0 0 25px var(--secondary-accent); }
+    }
+
+    .toggle-mode {
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      z-index: 1000;
     }
 
     .profile-glow {
       width: 200px;
       height: 200px;
       border-radius: 50%;
+      margin: auto;
       background: radial-gradient(circle at center, #00f0ff, #000);
-      box-shadow: 0 0 30px #00f0ff, 0 0 60px #00f0ff88, 0 0 100px #00f0ff55;
+      box-shadow: 0 0 30px #00f0ff, 0 0 60px #00f0ff88;
       display: flex;
-      align-items: center;
       justify-content: center;
-      transition: transform 0.3s;
-    }
-
-    .profile-glow:hover {
-      transform: scale(1.05);
+      align-items: center;
     }
 
     .profile-img {
       width: 90%;
       height: 90%;
-      border-radius: 50%;
       object-fit: cover;
+      border-radius: 50%;
       border: 3px solid white;
     }
 
-    nav a {
-      color: #ffffff;
-      transition: color 0.3s, background-color 0.3s, transform 0.3s;
-      border-radius: 5px;
-      padding: 5px 10px;
+    .typewriter-container {
+      text-align: center;
+      margin-top: 20px;
     }
-
-    nav a:hover {
-      color: #00ffe5;
-      background-color: #ffffff10;
-      transform: scale(1.1);
-    }
-
-    nav .nav-link[href="#home"]:hover { background-color: #ff4081; }
-    nav .nav-link[href="#experience"]:hover { background-color: #00bcd4; }
-
-    section {
-      padding: 80px 0;
-      transition: all 0.3s ease-in-out;
-    }
-
-    section:hover {
-      transform: scale(1.02);
-      box-shadow: 0 0 25px rgba(0, 255, 229, 0.4);
-    }
-
-    #about { background-color: rgba(0, 0, 50, 0.3); }
-    #experience { background-color: rgba(50, 0, 100, 0.3); }
-    #projects { background-color: rgba(0, 100, 150, 0.3); }
-    #certifications { background-color: rgba(50, 50, 80, 0.3); }
-    #contact { background-color: rgba(100, 50, 0, 0.3); }
-
-    #about h2 { color: #00ffe5; }
-    #experience h2 { color: #ff4081; }
-    #projects h2 { color: #ffd700; }
-    #certifications h2 { color: #8affc1; }
-    #contact h2 { color: #f28500; }
 
     .typewriter h1 {
+      display: inline-block;
+      font-size: 2.5rem;
+      font-weight: bold;
+      animation: typing 6s steps(50) infinite, hueRotate 10s infinite linear;
+      white-space: nowrap;
+      overflow: hidden;
       background: linear-gradient(90deg, #00ffe5, #ff4081, #ffd700);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: typing 6s steps(50, end) infinite, hueRotate 10s infinite linear;
-      font-weight: bold;
-      font-size: 2.5rem;
-      display: inline-block;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: none;
     }
 
     @keyframes typing {
-      0% { width: 0 }
-      50% { width: 100% }
-      100% { width: 0 }
+      0% { width: 0; }
+      50% { width: 100%; }
+      100% { width: 0; }
     }
 
     @keyframes hueRotate {
-      0% { filter: hue-rotate(0deg); }
-      100% { filter: hue-rotate(360deg); }
+      from { filter: hue-rotate(0deg); }
+      to { filter: hue-rotate(360deg); }
     }
 
     .btn-resume {
-      margin-top: 20px;
-      color: white;
       background-color: #ff5733;
+      color: #fff;
       border: none;
       padding: 10px 20px;
       border-radius: 5px;
       box-shadow: 0 0 10px #ff5733;
+      margin-top: 20px;
     }
 
-    .social-icons i {
-      font-size: 2.5rem;
+    .social-icons a {
+      font-size: 2rem;
       margin: 0 15px;
-      transition: transform 0.5s ease, color 0.3s;
+      color: inherit;
+      transition: transform 0.6s ease, color 0.4s ease;
+      display: inline-block;
     }
 
-    .social-icons i:hover {
-      transform: rotate(360deg) scale(1.3);
-      color: #00ffe5;
+    .social-icons a:hover {
+      transform: scale(1.4) rotate(360deg);
+      color: var(--primary-accent);
     }
 
-    .linkedin-3d {
-      color: #0e76a8;
-      text-shadow: 2px 2px 8px rgba(14, 118, 168, 0.9);
-    }
-
-    .github-3d {
-      color: #fafafa;
-      text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
+    section {
+      padding: 60px 0;
     }
 
     .cert-box {
@@ -149,100 +134,66 @@
       border: 1px solid #00ffe5;
       border-radius: 10px;
       padding: 15px;
-      margin: 10px auto;
-      max-width: 600px;
+      margin: 15px 0;
       box-shadow: 0 0 15px rgba(0, 255, 229, 0.3);
-      color: #fff;
     }
 
-    .cert-box:hover {
-      transform: scale(1.03);
-      background-color: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 0 25px rgba(0, 255, 229, 0.5);
+    .nav-link.active {
+      color: var(--primary-accent) !important;
+      font-weight: bold;
     }
 
-    /* Asteroids and Bubble Animations */
-    .asteroid {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Asteroid_icon.png/512px-Asteroid_icon.png') no-repeat center/contain;
-      animation: floatAsteroid 30s linear infinite;
-      opacity: 0.8;
-      z-index: 1;
-      pointer-events: none;
+    .counter {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--primary-accent);
     }
 
-    .asteroid:nth-child(1) {
-      top: 15%;
-      left: -80px;
-      animation-delay: 0s;
+    .counter-box {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 255, 229, 0.2);
     }
 
-    .asteroid:nth-child(2) {
-      top: 65%;
-      left: -80px;
-      animation-delay: 15s;
-    }
-
-    @keyframes floatAsteroid {
-      0% { transform: translateX(0) rotate(0deg); }
-      100% { transform: translateX(110vw) rotate(720deg); }
-    }
-
-    .bubble {
-      position: absolute;
-      width: 15px;
-      height: 15px;
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 50%;
-      pointer-events: none;
-      animation: bubbleFloat 1s ease-out forwards;
-      z-index: 9999;
-    }
-
-    @keyframes bubbleFloat {
-      0% { transform: scale(1); opacity: 1; }
-      100% { transform: translateY(-60px) scale(0.5); opacity: 0; }
-    }
   </style>
 </head>
-<body class="galaxy-bg">
-  <!-- Asteroids Floating -->
-  <div class="asteroid" style="top: 15%;"></div>
-  <div class="asteroid" style="top: 65%;"></div>
+<body>
+  <button class="btn btn-outline-light toggle-mode">Toggle Mode</button>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="#">Bhargav Portfolio</a>
-      <div class="collapse navbar-collapse">
+      <a class="navbar-brand" href="#">✨ Bhargav Kanjuluri</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbarNav" class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+          <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+          <li class="nav-item"><a href="#certifications" class="nav-link">Certifications</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
   <header id="home" class="text-center py-5">
-    <div class="container header-content">
-      <div class="profile-wrapper">
-        <div class="profile-glow">
-          <img src="assets/pic1.jpg" alt="Kanjuluri Bhargav" class="profile-img" />
-        </div>
+    <div class="container">
+      <div class="profile-glow">
+        <img src="assets/pic1.jpg" alt="Kanjuluri Bhargav" class="profile-img" />
       </div>
-      <div class="typewriter">
-        <h1>I am Kanjuluri Bhargav</h1>
+      <div class="typewriter-container mt-3">
+        <div class="typewriter"><h1>I am Kanjuluri Bhargav</h1></div>
+     
       </div>
       <p class="lead">Lead Talent Acquisition Specialist | Certified Naukri Maestro Recruiter</p>
       <a href="assets/My_Resume.pdf" class="btn btn-resume" download>Download Resume</a>
       <div class="social-icons mt-3">
-        <a href="https://www.linkedin.com/in/bhargav-k-162b88277/" target="_blank"><i class="fab fa-linkedin linkedin-3d"></i></a>
-        <a href="https://github.com" target="_blank"><i class="fab fa-github github-3d"></i></a>
+        <a href="https://www.linkedin.com/in/bhargav-k-162b88277/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
       </div>
     </div>
   </header>
@@ -250,42 +201,92 @@
   <section id="about" class="text-center" data-aos="fade-up">
     <div class="container">
       <h2>About Me</h2>
-      <p>Lead Talent Acquisition Specialist with 4+ years of experience managing recruitment processes in IT, Sales, and other domains, focused on diversity, analytics, and performance hiring strategy.</p>
+      <div class="cert-box mt-3">
+          <p>
+        I am <strong>Bhargav Kanjuluri</strong>, a seasoned <strong>Lead Talent Acquisition Specialist</strong> with over <strong>4 years</strong> of experience in managing end-to-end recruitment life cycles across IT, Non-IT, and business support functions. My core strength lies in aligning organizational hiring goals with strategic sourcing practices, driving top-notch candidate experiences, and ensuring the quality of hires remains consistently high.
+      </p>
+ <p>
+        Currently based in <strong>Hyderabad, India</strong>, I’m looking to continually challenge myself, connect with like-minded professionals, and elevate how organizations hire in the digital age.
+      </p>
+      <p>
+        My journey in talent acquisition spans across multiple industries, including IT services, staffing, and internal corporate recruitment, where I have successfully delivered results in high-volume hiring, niche tech talent search, and leadership hiring. I specialize in using modern platforms such as <strong>Naukri, LinkedIn, Indeed, ZOHO Recruit</strong>, and internal ATS to attract and convert high-potential candidates.
+      </p>
+      
+      <p>
+        I have been consistently recognized for exceeding hiring targets, launching DE&I recruitment campaigns, conducting campus drives, and introducing performance-based interview structures. I am certified as a <strong>Naukri Maestro Recruiter</strong> and a <strong>Tech Recruitment Certified Professional</strong>, further enhancing my ability to source and assess top tech talent.
+      </p>
+      <p>
+        I bring more than just hiring expertise. I bring a passion for people, a data-driven mindset, and a relentless drive to match the right talent with the right opportunity. Whether it’s a high-stakes leadership role or a tech niche hire, I ensure the recruitment process is seamless, inclusive, and impactful.
+      </p>
+     
+      </div>
     </div>
   </section>
 
   <section id="experience" class="text-center" data-aos="fade-right">
     <div class="container">
       <h2>Experience</h2>
-      <ul class="list-unstyled">
-        <li><strong>Lussotech Pvt Ltd:</strong> Spearheaded end-to-end hiring, sourcing strategies, and led recruitment teams (2025–Present).</li>
-        <li><strong>Dhalite Inc:</strong> Managed applicant tracking and scheduling, optimized recruitment funnel (2023–2024).</li>
-        <li><strong>Staff Works:</strong> Remote IT Recruiter handling sourcing, screening, ATS and client interaction (2021–2023).</li>
-      </ul>
+      <div class="cert-box"><strong>Lussotech Pvt Ltd:</strong> Led end-to-end hiring strategy, built talent pipeline. (2025–Present)</div>
+      <div class="cert-box"><strong>Dhalite Inc:</strong> Streamlined hiring workflows and ATS reporting. (2023–2024)</div>
+      <div class="cert-box"><strong>Staff Works:</strong> Full-cycle recruiter for US/India hiring (remote). (2021–2023)</div>
     </div>
   </section>
 
-  <section id="projects" class="text-center" data-aos="fade-left">
+  <section id="education" class="text-center" data-aos="fade-left">
     <div class="container">
-      <h2>Projects</h2>
-      <p>Coming Soon: Diversity Dashboard, Interview Automation Tool, Talent Analytics Platform.</p>
+      <h2>Education</h2>
+      <div class="cert-box"><strong>MSC Statistics </strong><br> Andhra  University, 2020</div>
+      <div class="cert-box"><strong>BSC Computers</strong><br>Krishna University University, 2017</div>
     </div>
   </section>
 
   <section id="certifications" class="text-center" data-aos="zoom-in">
     <div class="container">
       <h2>Certifications</h2>
-      <div class="cert-box">
-        <strong>Naukri Certified Maestro Recruiter</strong><br>
-        Issued by Naukri.com in May 2024
+      <div class="cert-box">Naukri Certified Maestro Recruiter – May 2024</div>
+      <div class="cert-box">LinkedIn Talent Insights – March 2023</div>
+      <div class="cert-box">Advanced Sourcing Techniques – Feb 2022</div>
+    </div>
+  </section>
+
+  <section class="text-center" data-aos="fade-up">
+    <div class="container">
+      <h2>Statistics</h2>
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <div class="counter-box"><div class="counter" data-target="20">0</div><p>Clients Served</p></div>
+        </div>
+        <div class="col-md-4">
+          <div class="counter-box"><div class="counter" data-target="300">0</div><p>Successful Hires</p></div>
+        </div>
+        <div class="col-md-4">
+          <div class="counter-box"><div class="counter" data-target="4">0</div><p>Years of Experience</p></div>
+        </div>
       </div>
-      <div class="cert-box">
-        <strong>LinkedIn Talent Insights</strong><br>
-        Issued by LinkedIn Learning, March 2023
-      </div>
-      <div class="cert-box">
-        <strong>Advanced Sourcing Techniques</strong><br>
-        Internal Workshop, February 2022
+    </div>
+  </section>
+
+  <section id="testimonials" class="text-center" data-aos="fade-up">
+    <div class="container">
+      <h2>Recommendations</h2>
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <p class="lead">"Great HR and having good skills who can handle end to end recruitment and operations as well" -Sai Kiran HR</p>
+          </div>
+          <div class="carousel-item">
+            <p class="lead">"He helped scale our tech team with precision hiring." – Director </p>
+          </div>
+          <div class="carousel-item">
+            <p class="lead">"Bhargav K consistently goes the extra mile to ensure we find the perfect fit for our team, making him." – Manager</p>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
       </div>
     </div>
   </section>
@@ -293,33 +294,70 @@
   <section id="contact" class="text-center" data-aos="fade-up">
     <div class="container">
       <h2>Contact</h2>
-      <p>Email: bhargav.kanjuluri@gmail.com | Phone: +91 83282 15507 | Hyderabad, India</p>
+      <div class="cert-box mt-4">
+        <p><strong>Email:</strong> <a href="mailto:bhargav.kanjuluri@gmail.com">bhargav.kanjuluri@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+918328215507">+91 83282 15507</a></p>
+        <p><strong>Location:</strong> Hyderabad, India</p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/bhargav-k-162b88277/" target="_blank">linkedin.com/in/bhargav-k-162b88277</a></p>
+      </div>
     </div>
   </section>
+
+  <button id="scrollTopBtn" class="btn btn-primary position-fixed bottom-0 end-0 m-3" style="display: none;">↑</button>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
 
-    // Background color cycle
-    const colors = ['#0f0c29', '#302b63', '#24243e', '#2b5876'];
-    let index = 0;
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        index = (index + 1) % colors.length;
-        document.body.style.background = colors[index];
-      });
+    document.querySelector(".toggle-mode").addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
     });
 
-    // Bubble effect on click
-    document.addEventListener('click', function (e) {
-      const bubble = document.createElement('div');
-      bubble.className = 'bubble';
-      bubble.style.left = `${e.clientX}px`;
-      bubble.style.top = `${e.clientY}px`;
-      document.body.appendChild(bubble);
-      setTimeout(() => bubble.remove(), 1000);
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    window.addEventListener("scroll", () => {
+      let scrollY = window.scrollY;
+      sections.forEach((sec) => {
+        const sectionTop = sec.offsetTop - 100;
+        const sectionHeight = sec.offsetHeight;
+        const sectionId = sec.getAttribute("id");
+
+        if (scrollY > sectionTop && scrollY < sectionTop + sectionHeight) {
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === "#" + sectionId) {
+              link.classList.add("active");
+            }
+          });
+        }
+      });
+
+      document.getElementById("scrollTopBtn").style.display = scrollY > 300 ? "block" : "none";
+    });
+
+    document.getElementById("scrollTopBtn").onclick = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    // Counter animation
+    document.addEventListener("DOMContentLoaded", () => {
+      const counters = document.querySelectorAll(".counter");
+      counters.forEach(counter => {
+        const update = () => {
+          const target = +counter.getAttribute("data-target");
+          const count = +counter.innerText;
+          const increment = target / 100;
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(update, 20);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        update();
+      });
     });
   </script>
 </body>
