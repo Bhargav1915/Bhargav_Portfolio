@@ -5,11 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kanjuluri Bhargav | HR Portfolio</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Bootstrap & FontAwesome -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
@@ -109,7 +105,7 @@
 
     .typewriter-container {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 5px;
     }
 
     .typewriter h1 {
@@ -142,7 +138,7 @@
       padding: 10px 20px;
       border-radius: 5px;
       box-shadow: 0 0 10px #ff5733;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
     .social-icons a {
@@ -231,17 +227,25 @@
       font-weight: 600;
     }
 
+    /* ✅ Final spacing improvement */
     #home {
-      min-height: 100vh;
+      min-height: 38vh;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       flex-direction: column;
-      padding-top: 40px;
-      padding-bottom: 30px;
+      padding-top: 50px;
+      padding-bottom: 10px;
+      gap: 10px;
     }
 
     @media (max-width: 576px) {
+      #home {
+        padding-top: 30px;
+        padding-bottom: 5px;
+        gap: 8px;
+      }
+
       .profile-glow {
         width: 140px;
         height: 140px;
@@ -264,10 +268,20 @@
         font-size: 1.6rem;
         margin: 0 10px;
       }
+
+      .typewriter-container {
+        margin-top: 4px;
+      }
     }
   </style>
 </head>
 <body>
+<!-- Your existing body content starting from toggle button, navbar, and header sections remains unchanged -->
+
+<!-- Your existing body content starting from toggle button, navbar, and header sections remains unchanged -->
+
+<!-- your body content remains unchanged -->
+
 
 <button class="btn btn-outline-light toggle-mode">Toggle Mode</button>
 
@@ -301,7 +315,7 @@
 <header id="home">
   <div class="profile-glow">
     <img src="assets/pic1.jpg" alt="Kanjuluri Bhargav" class="profile-img" />
-    <div class="popup-overlay">✨ Cofounder - Kanjuluri Bhargav</div>
+    <div class="popup-overlay">✨ Co-Founder - RecruGI</div>
   </div>
   <div class="typewriter-container mt-3">
     <div class="typewriter"><h1> HI I AM KANJULURI BHARGAV </h1></div>
