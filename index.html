@@ -73,6 +73,25 @@
       border-radius: 50%;
       border: 3px solid white;
     }
+.profile-glow:hover .profile-img {
+      opacity: 0.7;
+ }
+    .overlay-title {
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      text-shadow: 0 0 8px rgba(0,0,0,0.8);
+    }
+    .profile-glow:hover .overlay-title {
+      opacity: 1;
+    }
 
     .typewriter-container {
       text-align: center;
@@ -131,11 +150,20 @@
 
     .cert-box {
       background-color: rgba(255, 255, 255, 0.05);
-      border: 1px solid #00ffe5;
+      border: 1px solid var(--primary-accent);
       border-radius: 10px;
-      padding: 15px;
+      padding: 20px;
       margin: 15px 0;
       box-shadow: 0 0 15px rgba(0, 255, 229, 0.3);
+      transition: all 0.4s ease;
+    }
+
+    .cert-box:hover {
+      background-color: rgba(0, 255, 229, 0.07);
+      border-color: #ffd700;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.6), 0 0 15px #ff4081aa inset;
+      transform: translateY(-5px) scale(1.02);
+      cursor: pointer;
     }
 
     .nav-link.active {
@@ -154,8 +182,14 @@
       background: rgba(255, 255, 255, 0.05);
       border-radius: 12px;
       box-shadow: 0 0 15px rgba(0, 255, 229, 0.2);
+      transition: all 0.3s ease;
     }
 
+    .counter-box:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 25px rgba(0, 255, 229, 0.4);
+      transform: scale(1.03);
+    }
   </style>
 </head>
 <body>
@@ -174,6 +208,7 @@
           <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
           <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
           <li class="nav-item"><a href="#certifications" class="nav-link">Certifications</a></li>
+          <li class="nav-item"><a href="#case-studies" class="nav-link">Case Studies</a></li>
           <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </div>
@@ -186,8 +221,7 @@
         <img src="assets/pic1.jpg" alt="Kanjuluri Bhargav" class="profile-img" />
       </div>
       <div class="typewriter-container mt-3">
-      <div class="typewriter"><h1> HI I AM KANJULURI BHARGAV </h1></div>
-     
+        <div class="typewriter"><h1> HI I AM KANJULURI BHARGAV </h1></div>
       </div>
       <p class="lead">Lead Talent Acquisition Specialist | Certified Naukri Maestro Recruiter</p>
       <a href="assets/My_Resume.pdf" class="btn btn-resume" download>Download Resume</a>
@@ -202,23 +236,11 @@
     <div class="container">
       <h2>About Me</h2>
       <div class="cert-box mt-3">
-          <p>
-        I am <strong>Bhargav Kanjuluri</strong>, a seasoned <strong>Lead Talent Acquisition Specialist</strong> with over <strong>4 years</strong> of experience in managing end-to-end recruitment life cycles across IT, Non-IT, and business support functions. My core strength lies in aligning organizational hiring goals with strategic sourcing practices, driving top-notch candidate experiences, and ensuring the quality of hires remains consistently high.
-      </p>
- <p>
-        Currently based in <strong>Hyderabad, India</strong>, I’m looking to continually challenge myself, connect with like-minded professionals, and elevate how organizations hire in the digital age.
-      </p>
-      <p>
-        My journey in talent acquisition spans across multiple industries, including IT services, staffing, and internal corporate recruitment, where I have successfully delivered results in high-volume hiring, niche tech talent search, and leadership hiring. I specialize in using modern platforms such as <strong>Naukri, LinkedIn, Indeed, ZOHO Recruit</strong>, and internal ATS to attract and convert high-potential candidates.
-      </p>
-      
-      <p>
-        I have been consistently recognized for exceeding hiring targets, launching DE&I recruitment campaigns, conducting campus drives, and introducing performance-based interview structures. I am certified as a <strong>Naukri Maestro Recruiter</strong> and a <strong>Tech Recruitment Certified Professional</strong>, further enhancing my ability to source and assess top tech talent.
-      </p>
-      <p>
-        I bring more than just hiring expertise. I bring a passion for people, a data-driven mindset, and a relentless drive to match the right talent with the right opportunity. Whether it’s a high-stakes leadership role or a tech niche hire, I ensure the recruitment process is seamless, inclusive, and impactful.
-      </p>
-     
+        <p>I am <strong>Bhargav Kanjuluri</strong>, a seasoned <strong>Lead Talent Acquisition Specialist</strong> with over <strong>4 years</strong> of experience...</p>
+        <p>Currently based in <strong>Hyderabad, India</strong>...</p>
+        <p>My journey in talent acquisition spans across multiple industries...</p>
+        <p>I have been consistently recognized for exceeding hiring targets...</p>
+        <p>I bring more than just hiring expertise. I bring a passion for people...</p>
       </div>
     </div>
   </section>
@@ -235,7 +257,7 @@
   <section id="education" class="text-center" data-aos="fade-left">
     <div class="container">
       <h2>Education</h2>
-      <div class="cert-box"><strong>MSC Statistics </strong><br> Andhra  University, 2020</div>
+      <div class="cert-box"><strong>MSC Statistics </strong><br> Andhra University, 2020</div>
       <div class="cert-box"><strong>BSC Computers</strong><br>Krishna University University, 2017</div>
     </div>
   </section>
@@ -246,6 +268,44 @@
       <div class="cert-box">Naukri Certified Maestro Recruiter – May 2024</div>
       <div class="cert-box">LinkedIn Talent Insights – March 2023</div>
       <div class="cert-box">Advanced Sourcing Techniques – Feb 2022</div>
+    </div>
+  </section>
+
+  <section id="case-studies" class="text-center" data-aos="fade-up">
+    <div class="container">
+      <h2>Case Studies & Achievements</h2>
+      <div class="cert-box text-start">
+        <h5><strong>🚀 Tech Hiring Campaign Success – Lussotech Pvt Ltd (2025)</strong></h5>
+        <ul>
+          <li><strong>50+ roles</strong> filled in just <strong>45 days</strong>.</li>
+          <li><strong>87%</strong> offer-to-join ratio through candidate engagement.</li>
+          <li>Reduced time-to-fill by <strong>30%</strong> using ZOHO and LinkedIn.</li>
+        </ul>
+      </div>
+      <div class="cert-box text-start">
+        <h5><strong>🌍 Diversity & Inclusion Drive – Dhalite Inc (2024)</strong></h5>
+        <ul>
+          <li><strong>42%</strong> hires from underrepresented groups.</li>
+          <li>DE&I training for hiring panels.</li>
+          <li>Collaborated with women-in-tech forums and NGOs.</li>
+        </ul>
+      </div>
+      <div class="cert-box text-start">
+        <h5><strong>📊 ATS Optimization – Staff Works (2022)</strong></h5>
+        <ul>
+          <li>Rebuilt workflows in ZOHO Recruit for better clarity.</li>
+          <li>Automated candidate status updates, saving 40% manual effort.</li>
+          <li>Improved reporting for US + India hiring.</li>
+        </ul>
+      </div>
+      <div class="cert-box text-start">
+        <h5><strong>🎓 Campus Drive Results – Multiple Colleges (2023)</strong></h5>
+        <ul>
+          <li>Engaged <strong>12+ colleges</strong> across AP & Telangana.</li>
+          <li><strong>110+ hires</strong> made in a 3-month span.</li>
+          <li>Improved onboarding via pre-placement training.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -348,10 +408,11 @@
         const update = () => {
           const target = +counter.getAttribute("data-target");
           const count = +counter.innerText;
-          const increment = target / 100;
+          const increment = target / 200;
+
           if (count < target) {
             counter.innerText = Math.ceil(count + increment);
-            setTimeout(update, 20);
+            setTimeout(update, 10);
           } else {
             counter.innerText = target;
           }
